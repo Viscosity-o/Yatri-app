@@ -19,6 +19,7 @@ import {
   Headphones,
   User,
   Shield,
+  Navigation2,
 } from "lucide-react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { cssInterop } from "nativewind";
@@ -144,7 +145,7 @@ export default function Dash() {
 
         {/* Safety Score */}
         <TouchableOpacity
-          onPress={() => Alert.alert("Safety Score")}
+          onPress={() => navigation.navigate("CARD" as never)}
           style={{
             flexDirection: "row",
             alignItems: "center",
@@ -271,7 +272,7 @@ export default function Dash() {
 
           {/* Report */}
           <TouchableOpacity
-            onPress={() => Alert.alert("Report Issue")}
+            onPress={() => navigation.navigate("issue" as never)}
             style={{
               flex: 1,
               alignItems: "center",
@@ -323,49 +324,109 @@ export default function Dash() {
 
       {/* Bottom Navigation */}
       <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "space-around",
-          alignItems: "center",
-          backgroundColor: "white",
-          position: "absolute",
-          left: 20,
-          right: 20,
-          bottom: Platform.OS === "android" ? verticalScale(20) : verticalScale(28),
-          paddingVertical: verticalScale(12),
-          borderRadius: moderateScale(20),
-          shadowColor: "#000",
-          shadowOpacity: 0.1,
-          shadowRadius: 6,
-          elevation: 1,
-          marginBottom:verticalScale(28),
-        }}
-      >
-        <TouchableOpacity onPress={() => Alert.alert("Home")}>
-          <Home size={scale(24)} color="#3b82f6" />
-          <Text style={{ fontSize: moderateScale(12), color: "#3b82f6", marginTop: 4 }}>
-            Home
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => Alert.alert("Map")}>
-          <Map size={scale(24)} color="#717182" />
-          <Text style={{ fontSize: moderateScale(12), color: "#717182", marginTop: 4 }}>
-            Map
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => Alert.alert("Support")}>
-          <Headphones size={scale(24)} color="#717182" />
-          <Text style={{ fontSize: moderateScale(12), color: "#717182", marginTop: 4 }}>
-            Support
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => Alert.alert("Profile")}>
-          <User size={scale(24)} color="#717182" />
-          <Text style={{ fontSize: moderateScale(12), color: "#717182", marginTop: 4 }}>
-            Profile
-          </Text>
-        </TouchableOpacity>
-      </View>
+  style={{
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
+    backgroundColor: "white",
+    position: "absolute",
+    left: 20,
+    right: 20,
+    bottom: Platform.OS === "android" ? verticalScale(20) : verticalScale(28),
+    paddingVertical: verticalScale(12),
+    borderRadius: moderateScale(20),
+    shadowColor: "#000",
+    shadowOpacity: 0.1,
+    shadowRadius: 6,
+    elevation: 1,
+    marginBottom: verticalScale(28),
+  }}
+>
+  {/* Home (Active) */}
+  <TouchableOpacity
+    style={{ alignItems: "center" }}
+    onPress={() => Alert.alert("Home")}
+  >
+    <Home size={scale(24)} color="#3b82f6" />
+    <Text
+      style={{
+        fontSize: moderateScale(12),
+        color: "#3b82f6",
+        marginTop: 4,
+      }}
+    >
+      Home
+    </Text>
+  </TouchableOpacity>
+
+  {/* Map */}
+  <TouchableOpacity
+    style={{ alignItems: "center" }}
+    onPress={() => Alert.alert("Map")}
+  >
+    <Map size={scale(24)} color="#717182" />
+    <Text
+      style={{
+        fontSize: moderateScale(12),
+        color: "#717182",
+        marginTop: 4,
+      }}
+    >
+      Map
+    </Text>
+  </TouchableOpacity>
+
+  {/* Follow Me */}
+  <TouchableOpacity
+    style={{ alignItems: "center" }}
+    onPress={() => Alert.alert("Follow Me")}
+  >
+    <Navigation2 size={scale(24)} color="#717182" />
+    <Text
+      style={{
+        fontSize: moderateScale(12),
+        color: "#717182",
+        marginTop: 4,
+      }}
+    >
+      Follow Me
+    </Text>
+  </TouchableOpacity>
+
+  {/* Support */}
+  <TouchableOpacity
+    style={{ alignItems: "center" }}
+    onPress={() => navigation.navigate("Par" as never)}
+  >
+    <Headphones size={scale(24)} color="#717182" />
+    <Text
+      style={{
+        fontSize: moderateScale(12),
+        color: "#717182",
+        marginTop: 4,
+      }}
+    >
+      Support
+    </Text>
+  </TouchableOpacity>
+
+  {/* Profile */}
+  <TouchableOpacity
+    style={{ alignItems: "center" }}
+    onPress={() => Alert.alert("Profile")}
+  >
+    <User size={scale(24)} color="#717182" />
+    <Text
+      style={{
+        fontSize: moderateScale(12),
+        color: "#717182",
+        marginTop: 4,
+      }}
+    >
+      Profile
+    </Text>
+  </TouchableOpacity>
+</View>
     </SafeAreaView>
   );
 }

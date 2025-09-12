@@ -4,11 +4,18 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Login from "./Components/Login";  // aapka login component
 import Dash from "./Components/Dash";    // aapka dashboard component
 import SOSActive  from "./Components/SOS";
+import Support from "./Components/Support";
+import SupportScreen from "./Components/Support";
+import SafetyDetails from "./Components/Protection";
+import ReportIssue from "./Components/report";
 
 export type RootStackParamList = {
   Login: undefined;
   Dash: undefined;
   imp: undefined;
+  Par:undefined;
+   CARD:undefined;
+   issue:undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -35,6 +42,27 @@ export default function App() {
           component={SOSActive}
           options={{ title: "Emergency Active" }}
         />
+
+
+      <Stack.Screen
+          name="Par"
+          component={Support}
+          options={{ headerShown: false }}
+        />
+
+        <Stack.Screen
+          name = "CARD"
+          component ={SafetyDetails}
+          options={{ headerShown : false}}
+          />
+          <Stack.Screen
+          name ="issue"
+          component ={ReportIssue}
+          options ={{ headerShown : false}}
+          />
+
+
+
       </Stack.Navigator>
     </NavigationContainer>
   );
