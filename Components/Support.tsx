@@ -63,6 +63,15 @@ export default function SupportScreen() {
       return;
     }
 
+    // Define the system instruction to constrain the chatbot's persona and scope
+    const systemInstruction = {
+      parts: [
+        {
+          text: "You are Yatri, an AI assistant for a tourist safety app. Your purpose is to provide safety advice, emergency guidance, and answer questions about travel and the app's features. Respond concisely and do not engage in topics unrelated to tourist safety or travel. If a user asks about an unrelated topic, politely state that you can only help with travel-related inquiries."
+        }
+      ]
+    };
+
     try {
       const payload = {
         contents: [
@@ -70,6 +79,7 @@ export default function SupportScreen() {
             parts: [{ text: userMessage.text }],
           },
         ],
+        systemInstruction: systemInstruction,
       };
 
       const response = await fetch(API_URL, {
