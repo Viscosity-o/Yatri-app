@@ -32,8 +32,11 @@ import { useFonts, Lobster_400Regular } from "@expo-google-fonts/lobster";
 import { useNavigation } from "@react-navigation/native";
 // Enable Tailwind style props
 cssInterop(LinearGradient, { className: "style" });
+import { useTranslation } from "react-i18next";
 
 export default function Dash() {
+
+    const { t } = useTranslation();
   let [fontsLoaded] = useFonts({
     Lobster: Lobster_400Regular,
   });
@@ -45,6 +48,8 @@ export default function Dash() {
   const navigation = useNavigation();
 
   return (
+
+
     <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
       <ScrollView
         style={{ flex: 1 }}
@@ -297,7 +302,7 @@ export default function Dash() {
 
           {/* View */}
           <TouchableOpacity
-            onPress={() => Alert.alert("View Itinerary")}
+           onPress={() => navigation.navigate("itenary" as never)}
             style={{
               flex: 1,
               alignItems: "center",
@@ -414,7 +419,7 @@ export default function Dash() {
   {/* Profile */}
   <TouchableOpacity
     style={{ alignItems: "center" }}
-    onPress={() => Alert.alert("Profile")}
+    onPress={() => navigation.navigate("profile" as never)}
   >
     <User size={scale(24)} color="#717182" />
     <Text

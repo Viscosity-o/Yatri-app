@@ -18,6 +18,7 @@ import {
 import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import * as Location from "expo-location";
 import { Entypo, MaterialIcons } from "@expo/vector-icons";
+import { useTranslation } from "react-i18next";
 
 const { height: SCREEN_HEIGHT } = Dimensions.get("window");
 
@@ -27,6 +28,7 @@ const SHEET_MID_HEIGHT = Math.round(SCREEN_HEIGHT * 0.42);
 const SHEET_MIN_HEIGHT = Math.round(SCREEN_HEIGHT * 0.12);
 
 export default function MapFrontPage() {
+    const { t } = useTranslation();
   const [region, setRegion] = useState({
     latitude: 20.5937,
     longitude: 78.9629,
