@@ -21,7 +21,7 @@ type Message = {
 
 // API Key and URL for the Gemini API
 // IMPORTANT: Please replace this empty string with your actual API key
-const API_KEY = "";
+const API_KEY = "AIzaSyDQyI8i90a637eNgrjETIs_0ksw7R3vNb8";
 const API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=" + API_KEY;
 
 export default function SupportScreen() {

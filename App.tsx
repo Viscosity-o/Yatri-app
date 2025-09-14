@@ -8,6 +8,7 @@ import Support from "./Components/Support";
 import SupportScreen from "./Components/Support";
 import SafetyDetails from "./Components/Protection";
 import ReportIssue from "./Components/report";
+import MapFrontPage from "./Components/Map";
 
 export type RootStackParamList = {
   Login: undefined;
@@ -16,6 +17,7 @@ export type RootStackParamList = {
   Par:undefined;
    CARD:undefined;
    issue:undefined;
+   mrp:undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -60,6 +62,18 @@ export default function App() {
           component ={ReportIssue}
           options ={{ headerShown : false}}
           />
+
+
+
+ <Stack.Screen
+          name ="mrp"
+          component ={MapFrontPage}
+          options ={{ headerShown : false}}
+          />
+
+
+
+
 
 
 

@@ -362,7 +362,8 @@ export default function Dash() {
   {/* Map */}
   <TouchableOpacity
     style={{ alignItems: "center" }}
-    onPress={() => Alert.alert("Map")}
+    onPress={()=>navigation.navigate("mrp" as never)}
+   
   >
     <Map size={scale(24)} color="#717182" />
     <Text
